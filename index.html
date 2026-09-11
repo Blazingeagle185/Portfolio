@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adcharan Arivuchelvan | Mechanical Engineering Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Adcharan Arivuchelvan, a mechanical engineering student specializing in CAD design, FEA, dynamics, and automation.">
   <meta name="description"
     content="Portfolio of Adcharan Arivuchelvan, a mechanical engineering student specializing in CAD design, FEA, dynamics, and automation.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -13,8 +16,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 
 <body>
   <header id="header">
@@ -62,8 +69,12 @@
       <div class="profile-container">
         <div class="profile-image-container" data-aos="fade-right">
           <img src="./Images/adcharan.jpg" alt="Adcharan Arivuchelvan" class="profile-pic">
+          <img src="./Images/adcharan.jpg" alt="Adcharan Arivuchelvan" class="profile-pic">
         </div>
         <div class="bio" data-aos="fade-left">
+          <p>Hi, I'm <strong>Adcharan Arivuchelvan</strong>, a mechanical engineering student at the University of
+            Waterloo with a passion for designing and creating innovative solutions. Using a wide range of tools, such
+            as SolidWorks and programming, my areas of specialty are CAD, FEA, dynamics, and automation.</p>
           <p>Hi, I'm <strong>Adcharan Arivuchelvan</strong>, a mechanical engineering student at the University of
             Waterloo with a passion for designing and creating innovative solutions. Using a wide range of tools, such
             as SolidWorks and programming, my areas of specialty are CAD, FEA, dynamics, and automation.</p>
@@ -78,6 +89,8 @@
           <div class="social-links">
             <a href="https://www.linkedin.com/in/adcharan-arivuchelvan-109419245/" target="_blank" class="social-link"
               aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/adcharan-arivuchelvan-109419245/" target="_blank" class="social-link"
+              aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
             <a href="https://github.com/Blazingeagle185" target="_blank" class="social-link" aria-label="GitHub">
@@ -90,10 +103,12 @@
   </section>
 
 
+
   <section id="projects" class="projects-section section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">My Projects</h2>
+        <h4 class="section-subtitle">Click on images for more details.</h2>
         <h4 class="section-subtitle">Click on images for more details.</h2>
       </div>
       <div class="projects-container">
@@ -291,7 +306,46 @@
           <div class="gallery-container">
             <div class="gallery-item" data-project-id="conveyor">
               <img src="./Images/RegressCart.png" alt="Conveyor stopping mechanism" class="gallery-image">
+            <div class="gallery-item" data-project-id="conveyor">
+              <img src="./Images/RegressCart.png" alt="Conveyor stopping mechanism" class="gallery-image">
               <div class="gallery-caption">Conveyor stopping mechanism</div>
+              <div class="what-how-results">
+                <div class="what-column">
+                  <img src="./Images/RegressCart.png" alt="Conveyor stopping mechanism - what" class="column-image">
+                  <div class="column caption">What</div>
+                  <p class="column-text">Designed a lever to disconnect the conveyor driveshaft and lift the pallet part with the mechanism.</p>
+                </div>
+                <div class="what-column">
+                  <img src="./Images/shaft_fea_with_scale.png" alt="Conveyor stopping mechanism - how" class="column-image">
+                  <div class="column caption">How</div>
+                  <p class="column-text">Used SolidWorks to model the mechanism and ran stress analysis to ensure durability. The lever arm was designed to provide mechanical advantage.</p>
+                </div>
+                <div class="what-column">
+                  <img src="./Images/irl-conveyor-cart.png" alt="Conveyor stopping mechanism - results" class="column-image">
+                  <div class="column caption">Results</div>
+                  <p class="column-text">Successfully stopped the conveyor without damaging the belt or the parts. Reduced downtime by 15%.</p>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-item" data-project-id="induction">
+              <img src="./Images/InductionTable.png" alt="Induction heating table" class="gallery-image">
+              <div class="gallery-caption">Induction heating table</div>
+              <div class="what-how-results">
+                <div class="what-column">
+                  <img src="./Images/InductionTable.png" alt="Induction heating table - what" class="column-image">
+                  <div class="column caption">What</div>
+                  <p class="column-text">Designed an induction heating table to hold an industrial grade laser welding machine to weld ring gears for a Power Transfer Unit. </p>
+                </div>
+                <div class="what-column">
+                  <div class="column caption">How</div>
+                  <p class="column-text">Used McMaster-Carr parts and custom designed parts to be fabricated out of sheet metal, to hold the pinion ring gear assembly for weldment at the correct height.</p>
+                </div>
+                <div class="what-column">
+                  <img src="./Images/pinion_tower_metal_v2 (1).png" alt="Induction heating table - results" class="column-image">
+                  <div class="column caption">Results</div>
+                  <p class="column-text">Consistent heating profile achieved, resulting in stronger welds and fewer defects. In addition, optimized production worker efficiency by 36.7% by allowing for easier mounting without manually the part for weldment.</p>
+                </div>
+              </div>
               <div class="what-how-results">
                 <div class="what-column">
                   <img src="./Images/RegressCart.png" alt="Conveyor stopping mechanism - what" class="column-image">
@@ -332,7 +386,23 @@
             </div>
             <div class="gallery-item" data-project-id="oil-soak" data-detail-layout="hero">
               <img src="./Images/SpongeOil.png" alt="Oil soaking mechanism" class="gallery-image">
+            <div class="gallery-item" data-project-id="oil-soak" data-detail-layout="hero">
+              <img src="./Images/SpongeOil.png" alt="Oil soaking mechanism" class="gallery-image">
               <div class="gallery-caption">Oil soaking mechanism</div>
+              <div class="what-how-results">
+                <div class="what-column">
+                  <div class="column caption">What</div>
+                  <p class="column-text">Mechanism that reduces human effort in soaking part in oil.</p>
+                </div>
+                <div class="what-column">
+                  <div class="column caption">How</div>
+                  <p class="column-text">Created a "push to soak" mechanism with a spring that allowed for compact . Designed to be easily replaceable and avoid contact with electrical pins.</p>
+                </div>
+                <div class="what-column">
+                  <div class="column caption">Results</div>
+                  <p class="column-text">Eliminated electrical failures caused by oil contamination. Worker efficiency for task improved by 46.5%.</p>
+                </div>
+              </div>
               <div class="what-how-results">
                 <div class="what-column">
                   <div class="column caption">What</div>
@@ -350,12 +420,18 @@
             </div>
             <div class="gallery-item" data-project-id="pallet" data-detail="simple" data-description="Compact pallet design for quality testing parts.">
               <img src="./Images/Pallet.png" alt="Smaller pallet design" class="gallery-image">
+            <div class="gallery-item" data-project-id="pallet" data-detail="simple" data-description="Compact pallet design for quality testing parts.">
+              <img src="./Images/Pallet.png" alt="Smaller pallet design" class="gallery-image">
               <div class="gallery-caption">Smaller pallet design</div>
             </div>
             <div class="gallery-item" data-project-id="plug-puller" data-detail="simple" data-description="Vent plug pulling tool with smooth-fitting components.">
               <img src="./Images/PlugPuller.png" alt="Vent plug pulling tool" class="gallery-image">
+            <div class="gallery-item" data-project-id="plug-puller" data-detail="simple" data-description="Vent plug pulling tool with smooth-fitting components.">
+              <img src="./Images/PlugPuller.png" alt="Vent plug pulling tool" class="gallery-image">
               <div class="gallery-caption">Vent plug pulling tool</div>
             </div>
+            <div class="gallery-item" data-project-id="pinion" data-detail="simple" data-description="Custom fixtures to hold pinion gears during machining.">
+              <img src="./Images/Pinion.png" alt="Pinion gear fixtures" class="gallery-image">
             <div class="gallery-item" data-project-id="pinion" data-detail="simple" data-description="Custom fixtures to hold pinion gears during machining.">
               <img src="./Images/Pinion.png" alt="Pinion gear fixtures" class="gallery-image">
               <div class="gallery-caption">Pinion gear fixtures</div>
@@ -363,7 +439,11 @@
           </div>
           <div class="project-content">
             <p>At Camcor Manufacturing I was part of a highly dedicated and motivated team to develop the launch of an assembly production line for a new differential.</p>
+            <p>At Camcor Manufacturing I was part of a highly dedicated and motivated team to develop the launch of an assembly production line for a new differential.</p>
             <ul class="project-features">
+              <li>Worked with process engineers and operators to develop easy to use and cheap fixtures for part assembly.</li>
+              <li>Developed process and quality procedures with the engineering team to ensure industrial grade products.</li>
+              <li>Designed simple PLC programs for checking operator's progression at substations</li>
               <li>Worked with process engineers and operators to develop easy to use and cheap fixtures for part assembly.</li>
               <li>Developed process and quality procedures with the engineering team to ensure industrial grade products.</li>
               <li>Designed simple PLC programs for checking operator's progression at substations</li>
@@ -402,13 +482,39 @@
                 </div>
               </div>
             </div>
+          <div class="gallery-container">
+            <div class="gallery-item" data-project-id="ev3-robot">
+              <img src="./Images/Robot.png" alt="EV3 Robot" class="gallery-image">
+              <div class="gallery-caption">EV3 Robot</div>
+              <div class="what-how-results">
+                <div class="what-column">
+                  <img src="./Images/EV3_Hook.png" alt="EV3 Robot - how" class="column-image">
+                  <div class="column caption">What</div>
+                  <p class="column-text">Built a Lego EV3 robot that moves red cups outside its ultrasonic sensor range.</p>
+                </div>
+                <div class="what-column">
+                  <img src="./Images/EV3_Code.png" alt="EV3 Robot - how" class="column-image">
+                  <div class="column caption">How</div>
+                  <p class="column-text">Uses an ultrasonic sensor to accumulate trash data and move in a circular pattern to pick up cups with a geartrain mechanism made out of Lego and 3D printed parts.</p>
+                </div>
+                <div class="what-column">
+                  <img src="./Images/Robot.png" alt="EV3 Robot - how" class="column-image">
+                  <div class="column caption">Results</div>
+                  <p class="column-text">Successfully relocated cups beyond sensor range with consistent pick-and-place motion.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="project-content">
             <p>Developed a Lego EV3 robot with Robot C programming that can move red cups outside the range of its
               ultrasonic sensor by picking them up. Using lowering mechanisms and 3D-printed claws to pick up the cups.
             </p>
+            <p>Developed a Lego EV3 robot with Robot C programming that can move red cups outside the range of its
+              ultrasonic sensor by picking them up. Using lowering mechanisms and 3D-printed claws to pick up the cups.
+            </p>
             <div class="video-container">
               <video controls class="project-video">
+                <source src="./Videos/Video Highlight.mp4" type="video/mp4">
                 <source src="./Videos/Video Highlight.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -446,11 +552,35 @@
                 </div>
               </div>
             </div>
+            <div class="gallery-container">
+              <div class="gallery-item" data-project-id="ardriverino">
+                <img src="./Images/Ardriverino.png" alt="Ardriverino" class="gallery-image">
+                <div class="gallery-caption">Ardriverino</div>
+                <div class="what-how-results">
+                  <div class="what-column">
+                    <div class="column caption">What</div>
+                    <p class="column-text">Built a low-cost steering wheel controller for PC driving games.</p>
+                  </div>
+                  <div class="what-column">
+                    <img src="./Images/Ardriverino_Code.png" alt="Ardriverino" class="column-image">
+                    <div class="column caption">How</div>
+                    <p class="column-text">Used a Python serial listener to read pitch and force values from the Arduino, auto-calibrated a neutral baseline, then mapped tilt to A/D steering and force to W throttle with press/hold logic.</p>
+                  </div>
+                  <div class="what-column">
+                    <div class="column caption">Results</div>
+                    <p class="column-text">Achieved responsive, stable steering input without the cost of a commercial wheel.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           <div class="project-content">
+            <p>Created a cost-effective steering wheel for computers using an Arduino combined with a gyroscope and
+              accelerometer to detect rotation and register different magnitudes of rotation to key presses.</p>
             <p>Created a cost-effective steering wheel for computers using an Arduino combined with a gyroscope and
               accelerometer to detect rotation and register different magnitudes of rotation to key presses.</p>
             <div class="video-container">
               <video controls class="project-video">
+                <source src="./Videos/videoplayback.mp4" type="video/mp4">
                 <source src="./Videos/videoplayback.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -490,11 +620,37 @@
                 </div>
               </div>
             </div>
+            <div class="gallery-container">
+              <div class="gallery-item" data-project-id="romanoake">
+                <img src="./Images/Romanoake.png" alt="Romanoake" class="gallery-image">
+                <div class="gallery-caption">Romanoake</div>
+                <div class="what-how-results">
+                    <div class="what-column">
+                      <img src="./Images/Lyrics.png" alt="Romanoake - what" class="column-image">
+                      <div class="column caption">What</div>
+                      <p class="column-text">Built a full-stack karaoke app that romanizes multilingual lyrics and synchronizes them to Spotify playback.</p>
+                    </div>
+                    <div class="what-column">
+                      <img src="./Images/Romanoake_Code.png" alt="Romanoake - how" class="column-image">
+                      <div class="column caption">How</div>
+                      <p class="column-text">Orchestrated a Flask API that fetches lyrics from Genius/Musixmatch, aligns them with Spotify playback and analysis, and transliterates scripts using Azure Translator and Aksharamukha with language detection.</p>
+                    </div>
+                    <div class="what-column">
+                      <img src="./Images/Romanoake.png" alt="Romanoake - how" class="column-image">
+                      <div class="column caption">Results</div>
+                      <p class="column-text">Delivered readable, time-aligned lyrics with reliable romanization for smoother sing-along sessions across languages.</p>
+                    </div>
+                </div>
+              </div>
+            </div>
           <div class="project-content">
+            <p>Created a Web Karaoke app that romanizes foreign language lyrics (i.e 你好 → Nǐ hǎo) using Spotify API and
+              Azure Speech Services to romanize text and play music through the Spotify app.</p>
             <p>Created a Web Karaoke app that romanizes foreign language lyrics (i.e 你好 → Nǐ hǎo) using Spotify API and
               Azure Speech Services to romanize text and play music through the Spotify app.</p>
             <div class="video-container">
               <video controls class="project-video">
+                <source src="./Videos/romanoakeDemo.mp4" type="video/mp4">
                 <source src="./Videos/romanoakeDemo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -562,6 +718,8 @@
           <div class="project-content">
             <p>Created a prototype Self-Driving RC Car that uses machine learning algorithms to determine whether or not
               to turn. Uses a rack and pinion steering system with back-wheel drive.</p>
+            <p>Created a prototype Self-Driving RC Car that uses machine learning algorithms to determine whether or not
+              to turn. Uses a rack and pinion steering system with back-wheel drive.</p>
             <ul class="project-features">
               <li>Raspberry Pi controlled with motor controller</li>
               <li>30 FPS camera for continuous software updates</li>
@@ -599,9 +757,31 @@
                   <p class="column-text">Produced a stable, engaging tabletop demo for exploring structural stability and failure modes.</p>
                 </div>
               </div>
+          <div class="gallery-container">
+            <div class="gallery-item" data-project-id="quakemaster">
+              <img src="./Images/Quakemaster.png" alt="QuakeMaster" class="gallery-image">
+              <div class="gallery-caption">QuakeMaster</div>
+              <div class="what-how-results">
+                <div class="what-column">
+                  <img src="./Images/Quakemaster.png" alt="QuakeMaster - what" class="column-image">
+                  <div class="column caption">What</div>
+                  <p class="column-text">Built a shake-table toy inspired by Jenga Quake to simulate seismic motion.</p>
+                </div>
+                <div class="what-column">
+                  <div class="column caption">How</div>
+                  <p class="column-text">Designed a cam-driven lift-and-drop mechanism to create repeatable vibration profiles and keep blocks interlocked.</p>
+                </div>
+                <div class="what-column">
+                  <img src="./Images/QuakeMasterBlocks.png" alt="QuakeMaster - what" class="column-image">
+                  <div class="column caption">Results</div>
+                  <p class="column-text">Produced a stable, engaging tabletop demo for exploring structural stability and failure modes.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="project-content">
+            <p>Created a Shake Table Toy similar to Jenga Quake using a system of cam mechanisms to lift the various
+              tiles of the Shake Table and move the blocks.</p>
             <p>Created a Shake Table Toy similar to Jenga Quake using a system of cam mechanisms to lift the various
               tiles of the Shake Table and move the blocks.</p>
             <ul class="project-features">
@@ -626,6 +806,8 @@
         <h2 class="section-title">Contact Me</h2>
       </div>
       <div class="contact-content">
+        <p class="contact-intro" data-aos="fade-up">I'm always open to discussing new projects, creative ideas, or
+          opportunities to be part of your vision.</p>
         <p class="contact-intro" data-aos="fade-up">I'm always open to discussing new projects, creative ideas, or
           opportunities to be part of your vision.</p>
         <div class="contact-cards">
@@ -658,6 +840,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
+        <p>&copy; <span id="date"></span> Adcharan Arivuchelvan. All rights reserved.</p>
         <p>&copy; <span id="date"></span> Adcharan Arivuchelvan. All rights reserved.</p>
         <div class="footer-links">
           <a href="#about">About</a>
@@ -719,7 +902,57 @@
       }
     };
   </script>
+  <script>
+    // Data for projects
+    const projectWebData = {
+      "conveyor": {
+        title: "Conveyor Stopping Mechanism",
+        what: "<p>Designed a lever to disconnect the conveyor driveshaft and lift the pallet part with the mechanism.</p>",
+        how: "<p>Used SolidWorks to model the mechanism and ran stress analysis to ensure durability. The lever arm was designed to provide mechanical advantage.</p>",
+        results: "<p>Successfully stopped the conveyor without damaging the belt or the parts. Reduced downtime by 15%.</p>",
+        description: "A robust solution for managing pallet flow on the assembly line."
+      },
+      "oil-soak": {
+        title: "Oil Soaking Mechanism",
+        what: "<p>Mechanism that prevents oil from reaching electrical pins.</p>",
+        how: "<p>Utilized absorbent materials and a custom housing to trap excess oil. Designed to be easily replaceable.</p>",
+        results: "<p>Eliminated electrical failures caused by oil contamination. Maintenance intervals increased by 200%.</p>",
+        description: "Critical protection for sensitive electrical components."
+      },
+      "pallet": {
+        title: "Smaller Pallet Design",
+        what: "<p>Compact pallet design for quality testing parts.</p>",
+        how: "<p>Optimized the geometry to fit more parts on the test bench while maintaining structural integrity.</p>",
+        results: "<p>Increased testing throughput by 30% due to higher density packing.</p>",
+        description: "Efficiency improvement for the quality assurance process."
+      },
+      "plug-puller": {
+        title: "Vent Plug Pulling Tool",
+        what: "<p>Vent plug pulling tool with smooth-fitting components.</p>",
+        how: "<p>Ergonomic design to reduce hand strain. Precision machined for a perfect fit.</p>",
+        results: "<p>Reduced operator fatigue and minimized damage to the vent plugs during removal.</p>",
+        description: "Tooling improvement for assembly line workers."
+      },
+      "induction": {
+        title: "Induction Heating Table",
+        what: "<p>Induction heating table for welded gears.</p>",
+        how: "<p>Designed a fixture to hold gears in place while an induction coil heats the weld area.</p>",
+        results: "<p>Consistent heating profile achieved, resulting in stronger welds and fewer defects.</p>",
+        description: "Process automation for gear manufacturing."
+      },
+      "pinion": {
+        title: "Pinion Gear Fixtures",
+        what: "<p>Pinion gear fixtures.</p>",
+        how: "<p>Custom fixtures to hold pinion gears during machining.</p>",
+        results: "<p>Improved machining accuracy and reduced setup time.</p>",
+        description: "Production tooling for high-precision gears."
+      }
+    };
+  </script>
   <script src="scripts.js"></script>
 </body>
 
+
 </html>
+
+
