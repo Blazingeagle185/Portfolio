@@ -30,14 +30,39 @@ function initializeGallery() {
   galleryContainers.forEach((container) => {
     // Get all gallery images
     const galleryImages = container.querySelectorAll(".gallery-item")
+    const galleryCount = galleryImages.length
+    if (galleryCount === 1) {
+      container.classList.add("gallery-single")
+    } else if (galleryCount === 2) {
+      container.classList.add("gallery-double")
+    } else {
+      container.classList.add("gallery-multi")
+    }
 
     // Add click event to each image
     galleryImages.forEach((item, index) => {
       item.addEventListener("click", function () {
         const image = this.querySelector("img")
+        const projectId = this.getAttribute("data-project-id")
+        const detailType = this.getAttribute("data-detail")
+        const forceSimple = detailType === "simple"
+        const detailNode = forceSimple ? null : this.querySelector(".what-how-results")
+        const detailLayout = this.getAttribute("data-detail-layout")
+        const useHeroImage = detailLayout === "hero"
+        const description =
+          this.getAttribute("data-description") ||
+          this.querySelector(".gallery-caption")?.textContent?.trim()
         currentGallery = container
         currentImageIndex = index
-        openLightbox(image.src, image.alt)
+        openLightbox(
+          image.src,
+          image.alt,
+          projectId,
+          detailNode,
+          description,
+          forceSimple,
+          useHeroImage
+        )
       })
     })
   })
@@ -52,8 +77,8 @@ function initializeGallery() {
         <span class="close-lightbox">&times;</span>
         <button class="nav-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
         <div class="lightbox-image-container">
-          <img id="lightbox-image" src="/placeholder.svg" alt="">
-          <div class="loading-spinner"></div>
+          <img id="lightbox-image" alt="" />
+          <div class="loading-spinner" aria-hidden="true"></div>
         </div>
         <button class="nav-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
         <div class="lightbox-caption"></div>
@@ -90,8 +115,26 @@ function initializeGallery() {
       const galleryImages = currentGallery.querySelectorAll(".gallery-item")
       currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length
 
-      const image = galleryImages[currentImageIndex].querySelector("img")
-      updateLightboxImage(image.src, image.alt)
+      const item = galleryImages[currentImageIndex]
+      const image = item.querySelector("img")
+      const projectId = item.getAttribute("data-project-id")
+      const detailType = item.getAttribute("data-detail")
+      const forceSimple = detailType === "simple"
+      const detailNode = forceSimple ? null : item.querySelector(".what-how-results")
+      const detailLayout = item.getAttribute("data-detail-layout")
+      const useHeroImage = detailLayout === "hero"
+      const description =
+        item.getAttribute("data-description") ||
+        item.querySelector(".gallery-caption")?.textContent?.trim()
+      openLightbox(
+        image.src,
+        image.alt,
+        projectId,
+        detailNode,
+        description,
+        forceSimple,
+        useHeroImage
+      )
     })
 
     nextBtn.addEventListener("click", () => {
@@ -100,8 +143,26 @@ function initializeGallery() {
       const galleryImages = currentGallery.querySelectorAll(".gallery-item")
       currentImageIndex = (currentImageIndex + 1) % galleryImages.length
 
-      const image = galleryImages[currentImageIndex].querySelector("img")
-      updateLightboxImage(image.src, image.alt)
+      const item = galleryImages[currentImageIndex]
+      const image = item.querySelector("img")
+      const projectId = item.getAttribute("data-project-id")
+      const detailType = item.getAttribute("data-detail")
+      const forceSimple = detailType === "simple"
+      const detailNode = forceSimple ? null : item.querySelector(".what-how-results")
+      const detailLayout = item.getAttribute("data-detail-layout")
+      const useHeroImage = detailLayout === "hero"
+      const description =
+        item.getAttribute("data-description") ||
+        item.querySelector(".gallery-caption")?.textContent?.trim()
+      openLightbox(
+        image.src,
+        image.alt,
+        projectId,
+        detailNode,
+        description,
+        forceSimple,
+        useHeroImage
+      )
     })
 
     // Add keyboard navigation
@@ -122,9 +183,26 @@ function initializeGallery() {
   }
 }
 
-// Open lightbox with image
-function openLightbox(src, alt) {
+// Data for projects is now loaded from index.html (window.projectWebData)
+
+// Open lightbox with image (and optional project details)
+function openLightbox(
+  src,
+  alt,
+  projectId = null,
+  detailNode = null,
+  description = "",
+  forceSimple = false,
+  useHeroImage = false
+) {
   const lightbox = document.getElementById("lightbox")
+  const contentContainer = lightbox.querySelector(".lightbox-content")
+
+  // Reset content to default state first (remove any injected details)
+  const existingDetails = lightbox.querySelector(".lightbox-details");
+  if (existingDetails) existingDetails.remove();
+  const existingCustom = lightbox.querySelector(".lightbox-custom-details");
+  if (existingCustom) existingCustom.remove();
 
   // Show lightbox first with loading state
   lightbox.style.display = "flex"
@@ -135,12 +213,90 @@ function openLightbox(src, alt) {
   // Add active class for animation
   lightbox.classList.add("active")
 
-  // Update image
-  updateLightboxImage(src, alt)
+  if (useHeroImage) {
+    lightbox.classList.add("hero-detail")
+  } else {
+    lightbox.classList.remove("hero-detail")
+  }
+
+  // Check if this is a detailed project
+  if (detailNode) {
+    setupDomDetailedView(lightbox, src, alt, detailNode);
+  } else if (!forceSimple && projectId && projectWebData[projectId]) {
+    setupDetailedView(lightbox, src, alt, projectWebData[projectId]);
+  } else {
+    setupStandardView(lightbox, src, alt, description);
+  }
 }
 
+function setupDetailedView(lightbox, src, alt, data) {
+  lightbox.classList.add("detailed-view");
+  lightbox.classList.remove("simple-view");
+
+  // Create detailed content structure
+  const detailsHTML = `
+        <div class="lightbox-details">
+            <h3 class="lightbox-title">${data.title}</h3>
+            <div class="detail-tabs">
+                <button class="detail-tab-btn active" onclick="switchDetailTab(event, 'what')">What</button>
+                <button class="detail-tab-btn" onclick="switchDetailTab(event, 'how')">How</button>
+                <button class="detail-tab-btn" onclick="switchDetailTab(event, 'results')">Results</button>
+            </div>
+            <div id="what" class="detail-content active">${data.what}</div>
+            <div id="how" class="detail-content">${data.how}</div>
+            <div id="results" class="detail-content">${data.results}</div>
+            <p class="detail-description">${data.description}</p>
+        </div>
+    `;
+
+  // Append details after the image container
+  const imageContainer = lightbox.querySelector(".lightbox-image-container");
+  imageContainer.insertAdjacentHTML('afterend', detailsHTML);
+
+  updateLightboxImage(src, alt); // Load image as usual
+}
+
+function setupStandardView(lightbox, src, alt, description) {
+  lightbox.classList.remove("detailed-view");
+  lightbox.classList.add("simple-view");
+  // Standard view cleanup handled by removing .lightbox-details at start
+  updateLightboxImage(src, alt, description || alt);
+}
+
+// Use DOM content from the gallery item itself (what/how/results block)
+function setupDomDetailedView(lightbox, src, alt, detailNode) {
+  lightbox.classList.add("detailed-view");
+  lightbox.classList.remove("simple-view");
+
+  // Clone the provided detail block so we don't move the original
+  const clonedDetails = detailNode.cloneNode(true);
+  clonedDetails.classList.add("lightbox-custom-details");
+
+  // Append after the image container
+  const imageContainer = lightbox.querySelector(".lightbox-image-container");
+  imageContainer.insertAdjacentElement('afterend', clonedDetails);
+
+  updateLightboxImage(src, alt); // Load image as usual
+}
+
+// Global function for tab switching (needs to be global or attached to window if module)
+window.switchDetailTab = function (event, tabName) {
+  // Buttons
+  const buttons = event.target.parentElement.querySelectorAll(".detail-tab-btn");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+
+  // Content
+  const container = event.target.closest(".lightbox-details");
+  const contents = container.querySelectorAll(".detail-content");
+  contents.forEach(content => content.classList.remove("active"));
+
+  container.querySelector(`#${tabName}`).classList.add("active");
+}
+
+
 // Update lightbox image with loading indicator
-function updateLightboxImage(src, alt) {
+function updateLightboxImage(src, alt, captionText = alt) {
   const lightboxImage = document.getElementById("lightbox-image")
   const lightboxCaption = document.querySelector(".lightbox-caption")
   const loadingSpinner = document.querySelector(".loading-spinner")
@@ -153,7 +309,7 @@ function updateLightboxImage(src, alt) {
   lightboxImage.src = ""
 
   // Update caption
-  lightboxCaption.textContent = alt
+  lightboxCaption.textContent = captionText
 
   // Load new image
   const img = new Image()
@@ -261,4 +417,3 @@ function setupAnimations() {
     })
   })
 }
-
